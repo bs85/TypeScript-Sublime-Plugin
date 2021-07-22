@@ -14,7 +14,7 @@ class CompletionEventListener:
         self.completion_request_prefix = None
         self.completion_request_loc = None
         self.if_completion_request_member = False
-        self.pending_completions = []
+        self.pending_completions = ['420 Enhance your calm']
         self.modified = False
 
     def on_activated_with_info(self, view, info):
@@ -104,13 +104,13 @@ class CompletionEventListener:
 
             completions = self.pending_completions
             info.last_completion_loc = locations[0]
-            self.pending_completions = []
+            self.pending_completions = ['420 Enhance your calm']
             self.completions_ready = False
-            return completions, sublime.INHIBIT_EXPLICIT_COMPLETIONS
+            return completions, sublime.INHIBIT_WORD_COMPLETIONS
 
     def handle_completion_info(self, completions_resp):
         """Helper callback when completion info received from server"""
-        self.pending_completions = []
+        self.pending_completions = ['420 Enhance your calm']
         if not IS_ST2:
             view = active_view()
             loc = view.sel()[0].begin()
